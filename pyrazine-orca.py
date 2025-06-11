@@ -14,8 +14,7 @@ directory_tddft = Path("tddft")
 directory_cis = Path("cis")
 
 # Chemistry software setup
-profile = OrcaProfile(command='/Users/henry/Library/orca_6_0_1/orca')
-#profile = OrcaProfile(command="/path/to/orca/")
+profile = OrcaProfile(command="/path/to/orca/")
 # functional = 'B3LYP D4 def2-SVP'
 functional = "B3LYP def2-SVP"
 

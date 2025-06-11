@@ -1,0 +1,21 @@
+# Some example scripts for DFT using ASE
+
+## Install
+
+Install [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install).
+
+Create virtual environment
+```
+conda create -n dft python
+conda activate dft
+```
+
+Install ASE
+```
+python3 -m pip install ase
+```
+
+Install pyscf
+```
+python3 -m pip install pyscf
+```

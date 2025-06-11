@@ -31,9 +31,9 @@ distances = np.linspace(0.5, 3, 50)
 energies_hf = np.empty(shape=distances.shape)
 for i, d in enumerate(distances):
     mol = get_molecule(d=d, basis=basis)
-    mf_hf = scf.RKS(mol)
-    mf_hf = mf_hf.newton()
-    mf_hf.kernel()
+    mf_hf = scf.HF(mol) # Specify calculator
+    mf_hf = mf_hf.newton() # Specify how it is minimized
+    mf_hf.kernel() # Run the calculation
     energies_hf[i] = mf_hf.energy_tot() * hartree_to_ev
 
 # Get energies using restricted Kohn-Sham DFT
@@ -41,8 +41,8 @@ energies_dft = np.empty(shape=distances.shape)
 for i, d in enumerate(distances):
     mol = get_molecule(d=d, basis=basis)
     mf_dft = dft.RKS(mol)
-    mf_dft.xc = "lda"
-    # mf_dft.xc = "lda,vwn" # With dispersion corrections
+    #mf_dft.xc = "lda" # Specify the exchange correlation functional
+    mf_dft.xc = "lda,vwn" # With dispersion corrections
     # mf_dft.xc = 'b3lyp'
     mf_dft = mf_dft.newton()
     mf_dft.kernel()
